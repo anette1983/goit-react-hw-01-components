@@ -1,27 +1,27 @@
 import PropTypes from 'prop-types';
-// і тут приймаємо пропси
+import {StyledUl, StyledLi} from './ProfileStatsList.styled';
 
 export function ProfileStatsList({followers, views, likes}) {
   return (
-    <ul className="stats">
-      <li>
+    <StyledUl>
+      <StyledLi>
         <span className="label">Followers</span>
         <span className="quantity">{followers}</span>
-      </li>
-      <li>
+      </StyledLi>
+      <StyledLi>
         <span className="label">Views</span>
         <span className="quantity">{views}</span>
-      </li>
-      <li>
+      </StyledLi>
+      <StyledLi>
         <span className="label">Likes</span>
         <span className="quantity">{likes}</span>
-      </li>
-    </ul>
+      </StyledLi>
+    </StyledUl>
   );
 }
 
 ProfileStatsList.propTypes = {
     followers: PropTypes.number.isRequired,
-    views: PropTypes.number,
+    views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
 };

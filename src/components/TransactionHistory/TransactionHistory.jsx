@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { TransactionRow } from 'components/TransactionRow/TransactionRow';
-
+import { StyledTable } from './TransactionHistory.styled';
 
 export function TransactionHistory({transactions}) {
     return (
-        <table>
+        <StyledTable>
         <thead>
           <tr>
             <th>Type</th>
@@ -20,13 +20,19 @@ export function TransactionHistory({transactions}) {
             }
           
         </tbody>
-      </table>
+      </StyledTable>
     );
   }
 
 
   TransactionHistory.propTypes = {
-    transactions: PropTypes.array.isRequired
+    transactions: PropTypes.arrayOf(PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired
+    }),
+    )
 };
 
 

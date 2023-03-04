@@ -15,6 +15,14 @@ export function FriendListItem({friend}) {
   }
 
 
+// FriendListItem.propTypes = {
+//   friend: PropTypes.object.isRequired,
+// };
 FriendListItem.propTypes = {
-  friend: PropTypes.object.isRequired,
-};
+  friend: PropTypes.shape({
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired
+  }),
+}
